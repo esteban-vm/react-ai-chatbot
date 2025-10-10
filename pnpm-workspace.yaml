@@ -1,0 +1,4 @@
+publicHoistPattern:
+  - '*eslint*'
+  - '*prettier*'
+  - '*typescript*'
