@@ -15,11 +15,11 @@ export default defineConfig([
       js.configs.recommended,
       tseslint.configs.strictTypeChecked,
       tseslint.configs.stylisticTypeChecked,
+      react.configs.flat.recommended,
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
     ],
     plugins: {
-      react: react,
       'sort-exports': sortExports,
     },
     languageOptions: {
@@ -35,6 +35,7 @@ export default defineConfig([
       },
     },
     rules: {
+      'react/react-in-jsx-scope': 'off',
       'react/no-array-index-key': 'warn',
       'react/boolean-prop-naming': [
         'warn',
