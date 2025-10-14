@@ -18,7 +18,8 @@ export const SendButton = tw.button`
   rounded-full
   bg-white
   hover:opacity-95
-  active:scale-95
+  enabled:active:scale-95
+  disabled:cursor-not-allowed
 `
 
 export const TextBox = tw.textarea`
@@ -33,4 +34,5 @@ export const TextBox = tw.textarea`
   valid:outline-green-300
   invalid:outline-red-300
   focus:outline-neutral-300
+  disabled:cursor-not-allowed
 `
