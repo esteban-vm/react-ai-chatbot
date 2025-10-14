@@ -1,9 +1,5 @@
 import tw from 'tailwind-styled-components'
 
-export interface MessageItemProps {
-  $role: Role
-}
-
 export const AppLogo = tw.img`
   mx-auto
   size-16
@@ -27,15 +23,6 @@ export const Container = tw.main`
   rounded-xl
   p-3
   shadow-lg
-`
-
-export const MessageItem = tw.div<MessageItemProps>`
-  ${({ $role }) => ($role === 'user' ? 'self-end bg-neutral-100' : 'self-start')}
-  w-[90%]
-  rounded-l-lg
-  px-3
-  py-1.5
-  text-pretty
 `
 
 export const MessageList = tw.div`

@@ -9,6 +9,10 @@
   #root {
     @apply flex h-screen w-full flex-col items-center justify-center bg-neutral-100 text-black;
   }
+
+  a {
+    @apply text-sky-500 hover:opacity-90;
+  }
 }
 
 /* .glass-element {

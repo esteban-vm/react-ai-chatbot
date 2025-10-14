@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import logo from '@/assets/chat-bot.png'
-import { LoadingSpinner, MessageForm } from '@/components'
+import { LoadingSpinner, MessageForm, MessageItem } from '@/components'
 // import { AIAssistant } from '@/utils'
 import * as $ from './App.styled'
 
@@ -49,13 +49,9 @@ export default function App() {
       </header>
       <$.MessageList>
         {isLoading && <LoadingSpinner />}
-        {messages.map((message) => {
-          return (
-            <$.MessageItem key={crypto.randomUUID()} $role={message.role}>
-              {message.content}
-            </$.MessageItem>
-          )
-        })}
+        {messages.map((message) => (
+          <MessageItem key={crypto.randomUUID()} {...message} />
+        ))}
       </$.MessageList>
       <MessageForm isDisabled={isLoading} onSendMessage={sendMessage} />
     </$.Container>
