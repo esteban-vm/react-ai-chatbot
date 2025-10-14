@@ -1,6 +1,6 @@
 import type { ChangeEventHandler, KeyboardEventHandler } from 'react'
 import { useState } from 'react'
-import tw from 'tailwind-styled-components'
+import * as $ from './message-form.styled'
 
 export interface MessageFormProps {
   onSendMessage: (content: string) => Promise<void>
@@ -28,49 +28,14 @@ export function MessageForm({ onSendMessage }: MessageFormProps) {
   }
 
   return (
-    <Container>
-      <TextBox placeholder='Your message…' value={content} onChange={handleChange} onKeyDown={handleKeyDown} />
-      <SendButton title='Send message' type='button' onClick={handleClick}>
+    <$.Container>
+      <$.TextBox placeholder='Your message…' value={content} onChange={handleChange} onKeyDown={handleKeyDown} />
+      <$.SendButton title='Send message' type='button' onClick={handleClick}>
         <SendIcon />
-      </SendButton>
-    </Container>
+      </$.SendButton>
+    </$.Container>
   )
 }
-
-const Container = tw.div`
-  flex
-  h-16
-  w-full
-  items-center
-  gap-3
-`
-
-const TextBox = tw.textarea`
-  h-full
-  grow
-  resize-none
-  rounded-lg
-  bg-white
-  p-3
-  outline-1
-  outline-transparent
-  valid:outline-green-300
-  invalid:outline-red-300
-  focus:outline-neutral-300
-`
-
-const SendButton = tw.button`
-  flex
-  aspect-square
-  h-full
-  cursor-pointer
-  items-center
-  justify-center
-  rounded-full
-  bg-white
-  hover:opacity-95
-  active:scale-95
-`
 
 function SendIcon() {
   return (
