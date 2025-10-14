@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import logo from '@/assets/chat-bot.png'
 import { LoadingSpinner, MessageForm, MessageItem } from '@/components'
-// import { AIAssistant } from '@/utils'
+import { AIAssistant } from '@/utils'
 import * as $ from './App.styled'
 
-// const assistant = new AIAssistant('gemini-2.5-flash')
+const assistant = new AIAssistant('gemini-2.5-flash')
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(false)
+
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'system',
@@ -24,9 +25,9 @@ export default function App() {
     setIsLoading(true)
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 7_000))
-      // const reply = await assistant.chat(content)
-      // addMessage({ role: 'assistant', content: reply })
+      // await new Promise((resolve) => setTimeout(resolve, 7_000))
+      const reply = await assistant.chat(content)
+      addMessage({ role: 'assistant', content: reply })
     } catch (error) {
       if (import.meta.env.DEV) {
         console.log(error)
