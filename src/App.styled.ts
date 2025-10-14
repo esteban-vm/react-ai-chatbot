@@ -34,4 +34,5 @@ export const MessageList = tw.div`
   overflow-y-auto
   rounded-xl
   bg-white
+  pb-2
 `
