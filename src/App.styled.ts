@@ -39,6 +39,7 @@ export const MessageItem = tw.div<MessageItemProps>`
 `
 
 export const MessageList = tw.div`
+  relative
   flex
   grow
   flex-col
