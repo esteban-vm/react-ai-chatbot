@@ -3,10 +3,11 @@ import { useState } from 'react'
 import * as $ from './message-form.styled'
 
 export interface MessageFormProps {
+  isDisabled: boolean
   onSendMessage: (content: string) => Promise<void>
 }
 
-export function MessageForm({ onSendMessage }: MessageFormProps) {
+export function MessageForm({ isDisabled, onSendMessage }: MessageFormProps) {
   const [content, setContent] = useState('')
 
   const handleClick = () => {
@@ -29,8 +30,15 @@ export function MessageForm({ onSendMessage }: MessageFormProps) {
 
   return (
     <$.Container>
-      <$.TextBox placeholder='Your message…' value={content} onChange={handleChange} onKeyDown={handleKeyDown} />
-      <$.SendButton title='Send message' type='button' onClick={handleClick}>
+      <$.TextBox
+        disabled={isDisabled}
+        placeholder='Your message…'
+        value={content}
+        autoFocus
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
+      <$.SendButton disabled={isDisabled} title='Send message' type='button' onClick={handleClick}>
         <SendIcon />
       </$.SendButton>
     </$.Container>
