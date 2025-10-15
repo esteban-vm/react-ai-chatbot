@@ -60,6 +60,7 @@ export default defineConfig([
         },
       ],
       '@typescript-eslint/no-base-to-string': 'off',
+      '@typescript-eslint/no-misused-promises': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/no-empty-object-type': 'warn',
       '@typescript-eslint/consistent-type-imports': 'warn',
