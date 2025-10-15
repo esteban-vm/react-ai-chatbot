@@ -1,7 +1,7 @@
 import { SendHorizontal } from 'lucide-react'
 import tw from 'tailwind-styled-components'
 
-export const Container = tw.div`
+export const Container = tw.form`
   flex
   w-full
   items-center
