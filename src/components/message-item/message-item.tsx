@@ -1,9 +1,7 @@
-import type { SyntaxHighlighterProps } from 'react-syntax-highlighter'
 import Markdown from 'react-markdown'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import remarkBreaks from 'remark-breaks'
 import remarkGfm from 'remark-gfm'
+import { CodeHighlighter } from '@/utils'
 import * as $ from './message-item.styled'
 
 export function MessageItem({ role, content }: Message) {
@@ -33,18 +31,5 @@ export function MessageItem({ role, content }: Message) {
         {content}
       </Markdown>
     </$.Container>
-  )
-}
-
-function CodeHighlighter(props: SyntaxHighlighterProps) {
-  return (
-    <SyntaxHighlighter
-      PreTag='div'
-      codeTagProps={{ style: { whiteSpace: 'pre-wrap', fontSize: '0.75rem' } }}
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      style={oneDark}
-      showLineNumbers
-      {...props}
-    />
   )
 }
