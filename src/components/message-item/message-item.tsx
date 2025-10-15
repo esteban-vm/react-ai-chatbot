@@ -1,12 +1,12 @@
 import Markdown from 'react-markdown'
 import remarkBreaks from 'remark-breaks'
 import remarkGfm from 'remark-gfm'
-import { CodeHighlighter } from '@/utils'
+import { CodeHighlighter, cn } from '@/utils'
 import * as $ from './message-item.styled'
 
 export function MessageItem({ role, content }: Message) {
   return (
-    <$.Container className={role === 'user' ? 'self-end rounded-l-lg bg-neutral-100' : 'self-start'}>
+    <$.Container className={cn(role === 'user' ? 'self-end rounded-l-lg bg-neutral-100' : 'self-start')}>
       <Markdown
         remarkPlugins={[remarkGfm, remarkBreaks]}
         components={{
@@ -20,7 +20,7 @@ export function MessageItem({ role, content }: Message) {
                 {highlighted}
               </CodeHighlighter>
             ) : (
-              <code {...props} className={`${className} text-xs whitespace-pre-wrap`}>
+              <code {...props} className={cn(className, 'text-xs whitespace-pre-wrap')}>
                 {children}
               </code>
             )

@@ -26,5 +26,7 @@
     "^@(/.*)$",
     "^[./]"
   ],
-  "importOrderCaseSensitive": true
+  "importOrderCaseSensitive": true,
+  "customFunctions": ["clsx", "cn"],
+  "customAttributes": ["className"]
 }

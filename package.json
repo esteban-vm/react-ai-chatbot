@@ -51,6 +51,7 @@
     "prettier-plugin-merge": "^0.8.0",
     "prettier-plugin-tailwind-styled-components": "^1.0.0",
     "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwind-merge": "^3.3.1",
     "tailwind-styled-components": "^2.2.0",
     "tailwindcss": "^4.1.14",
     "typescript": "~5.9.3",
