@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import logo from '@/assets/chat-bot.png'
-import { LoadingSpinner, MessageForm, MessageItem } from '@/components'
-// import { AIAssistant } from '@/utils'
+import { LoadingSpinner, MessageForm, MessageItem, MessageList } from '@/components'
 import * as $ from './App.styled'
 
+// import { AIAssistant } from '@/utils'
 // const assistant = new AIAssistant('gemini-2.5-flash')
 
 export default function App() {
@@ -48,12 +48,12 @@ export default function App() {
         <$.AppLogo alt='logo' src={logo} />
         <$.AppTitle>AI Chatbot</$.AppTitle>
       </header>
-      <$.MessageList>
+      <MessageList itemCount={messages.length}>
         {isLoading && <LoadingSpinner />}
         {messages.map((message) => (
           <MessageItem key={crypto.randomUUID()} {...message} />
         ))}
-      </$.MessageList>
+      </MessageList>
       <MessageForm isDisabled={isLoading} onSendMessage={sendMessage} />
     </$.Container>
   )
