@@ -13,12 +13,11 @@ export function MessageItem({ role, content }: Message) {
           code(props) {
             const { children, className = '', node, style: _, ...rest } = props
             const match = /language-(\w+)/.exec(className)
-            // eslint-disable-next-line @typescript-eslint/no-base-to-string
-            const codeContent = String(children).replace(/\n$/, '')
+            const highlighted = String(children).replace(/\n$/, '')
 
             return match ? (
               <CodeHighlighter {...rest} language={match[1]}>
-                {codeContent}
+                {highlighted}
               </CodeHighlighter>
             ) : (
               <code {...props} className={`${className} text-xs whitespace-pre-wrap`}>
