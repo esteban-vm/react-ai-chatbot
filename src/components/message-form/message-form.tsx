@@ -1,5 +1,6 @@
 import type { ChangeEventHandler, KeyboardEventHandler } from 'react'
 import { useState } from 'react'
+import TextareaAutosize from 'react-textarea-autosize'
 import * as $ from './message-form.styled'
 
 export interface MessageFormProps {
@@ -31,7 +32,10 @@ export function MessageForm({ isDisabled, onSendMessage }: MessageFormProps) {
   return (
     <$.Container>
       <$.TextBox
+        $as={TextareaAutosize}
         disabled={isDisabled}
+        maxRows={4}
+        minRows={2}
         placeholder='Your message…'
         value={content}
         autoFocus
@@ -39,21 +43,8 @@ export function MessageForm({ isDisabled, onSendMessage }: MessageFormProps) {
         onKeyDown={handleKeyDown}
       />
       <$.SendButton disabled={isDisabled} title='Send message' type='button' onClick={handleClick}>
-        <SendIcon />
+        <$.SendIcon />
       </$.SendButton>
     </$.Container>
-  )
-}
-
-function SendIcon() {
-  return (
-    <svg
-      className='size-3/4 fill-neutral-300'
-      fill='#FFFFFF'
-      viewBox='0 -960 960 960'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path d='M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z' />
-    </svg>
   )
 }
