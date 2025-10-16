@@ -1,7 +1,8 @@
 import Markdown from 'react-markdown'
 import remarkBreaks from 'remark-breaks'
 import remarkGfm from 'remark-gfm'
-import { CodeHighlighter, cn } from '@/utils'
+import { Atoms } from '@/components'
+import { cn } from '@/utils'
 import * as $ from './message-item.styled'
 
 export function MessageItem({ role, content }: Message) {
@@ -16,9 +17,9 @@ export function MessageItem({ role, content }: Message) {
             const highlighted = String(children).replace(/\n$/, '')
 
             return match ? (
-              <CodeHighlighter {...rest} language={match[1]}>
+              <Atoms.CodeHighlighter {...rest} language={match[1]}>
                 {highlighted}
-              </CodeHighlighter>
+              </Atoms.CodeHighlighter>
             ) : (
               <code {...props} className={cn(className, 'text-xs whitespace-pre-wrap')}>
                 {children}

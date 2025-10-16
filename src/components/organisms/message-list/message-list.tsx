@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
+import { Molecules } from '@/components'
 import { useMessageStore } from '@/hooks'
-import { LoadingSpinner } from './loading-spinner'
-import { MessageItem } from './message-item'
 import * as $ from './message-list.styled'
 
 export function MessageList() {
@@ -14,9 +13,9 @@ export function MessageList() {
 
   return (
     <$.Container>
-      {isLoading && <LoadingSpinner />}
+      {isLoading && <Molecules.LoadingSpinner />}
       {messages.map((message) => (
-        <MessageItem key={crypto.randomUUID()} {...message} />
+        <Molecules.MessageItem key={crypto.randomUUID()} {...message} />
       ))}
       <div ref={messagesEndRef} />
     </$.Container>

@@ -2,9 +2,6 @@ import TextareaAutosize from 'react-textarea-autosize'
 import { useMessageForm, useMessageStore } from '@/hooks'
 import * as $ from './message-form.styled'
 
-// import { AIAssistant } from '@/utils'
-// const assistant = new AIAssistant('gemini-2.5-flash')
-
 export function MessageForm() {
   const { isLoading, sendMessage } = useMessageStore()
 

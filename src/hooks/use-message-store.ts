@@ -1,5 +1,8 @@
 import { create } from 'zustand'
 
+// import { AIAssistant } from '@/utils'
+// const assistant = new AIAssistant('gemini-2.5-flash')
+
 export interface MessageStore {
   isLoading: boolean
   messages: Message[]
@@ -16,6 +19,8 @@ export const useMessageStore = create<MessageStore>()((set) => ({
   ],
 
   async sendMessage(content) {
+    console.log('sending message')
+
     const addMessage = (newMessage: Message) => {
       set((state) => ({ messages: [...state.messages, newMessage] }))
     }
