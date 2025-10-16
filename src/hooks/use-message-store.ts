@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 
 // import { AIAssistant } from '@/utils'
+
 // const assistant = new AIAssistant('gemini-2.5-flash')
 
 export interface MessageStore {
@@ -11,12 +12,7 @@ export interface MessageStore {
 
 export const useMessageStore = create<MessageStore>()((set) => ({
   isLoading: false,
-  messages: [
-    {
-      role: 'system',
-      content: 'Hello! How can I assist you right now?',
-    },
-  ],
+  messages: [],
 
   async sendMessage(content) {
     const addMessage = (newMessage: Message) => {
@@ -27,7 +23,7 @@ export const useMessageStore = create<MessageStore>()((set) => ({
     set({ isLoading: true })
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 7_000))
+      await new Promise((resolve) => setTimeout(resolve, 1_000))
       // const reply = await assistant.chat(content)
       // addMessage({ role: 'assistant', content: reply })
     } catch (error) {
