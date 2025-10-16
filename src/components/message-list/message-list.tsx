@@ -1,22 +1,23 @@
-import type { ReactNode } from 'react'
 import { useEffect, useRef } from 'react'
+import { useMessageStore } from '@/hooks'
+import { LoadingSpinner } from './loading-spinner'
+import { MessageItem } from './message-item'
 import * as $ from './message-list.styled'
 
-export interface MessageListProps {
-  children: ReactNode
-  itemCount: number
-}
-
-export function MessageList({ itemCount, children }: MessageListProps) {
+export function MessageList() {
+  const { messages, isLoading } = useMessageStore()
   const messagesEndRef = useRef<HTMLDivElement>(null!)
 
   useEffect(() => {
     messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
-  }, [itemCount])
+  }, [messages.length])
 
   return (
     <$.Container>
-      {children}
+      {isLoading && <LoadingSpinner />}
+      {messages.map((message) => (
+        <MessageItem key={crypto.randomUUID()} {...message} />
+      ))}
       <div ref={messagesEndRef} />
     </$.Container>
   )

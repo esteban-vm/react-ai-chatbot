@@ -1,27 +1,30 @@
 import TextareaAutosize from 'react-textarea-autosize'
-import { useMessageForm } from '@/hooks'
+import { useMessageForm, useMessageStore } from '@/hooks'
 import * as $ from './message-form.styled'
 
-export interface MessageFormProps {
-  isDisabled: boolean
-  onSendMessage: (content: string) => Promise<void>
-}
+// import { AIAssistant } from '@/utils'
+// const assistant = new AIAssistant('gemini-2.5-flash')
 
-export function MessageForm({ isDisabled, onSendMessage }: MessageFormProps) {
-  const { formRef, messageField, handleKeyDown, onSubmit } = useMessageForm({ isDisabled, onSendMessage })
+export function MessageForm() {
+  const { isLoading, sendMessage } = useMessageStore()
+
+  const { formRef, messageField, handleKeyDown, onSubmit } = useMessageForm({
+    isDisabled: isLoading,
+    onSendMessage: sendMessage,
+  })
 
   return (
     <$.Container ref={formRef} onSubmit={onSubmit}>
       <$.TextBox
         $as={TextareaAutosize}
-        disabled={isDisabled}
+        disabled={isLoading}
         maxRows={4}
         minRows={2}
         placeholder='Your message…'
         onKeyDown={handleKeyDown}
         {...messageField}
       />
-      <$.SendButton disabled={isDisabled} title='Send message' type='submit'>
+      <$.SendButton disabled={isLoading} title='Send message' type='submit'>
         <$.SendIcon />
       </$.SendButton>
     </$.Container>

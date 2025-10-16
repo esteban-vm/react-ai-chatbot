@@ -1,6 +1,5 @@
 import type { KeyboardEventHandler } from 'react'
 import type { SubmitHandler } from 'react-hook-form'
-import type { MessageFormProps } from '@/components'
 import { useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -8,7 +7,12 @@ export interface MessageFormValues {
   message: string
 }
 
-export function useMessageForm({ isDisabled, onSendMessage }: MessageFormProps) {
+export interface UseMessageFormProps {
+  isDisabled: boolean
+  onSendMessage: (content: string) => Promise<void>
+}
+
+export function useMessageForm({ isDisabled, onSendMessage }: UseMessageFormProps) {
   const formRef = useRef<HTMLFormElement>(null!)
 
   const { register, handleSubmit, resetField, setFocus } = useForm<MessageFormValues>({
