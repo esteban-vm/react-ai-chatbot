@@ -70,7 +70,6 @@ const MOCK_MESSAGES: Message[][] = [
       role: 'assistant',
       content: `
 ## Hi from assistant
-
 This is a paragraph.
 `,
     },
@@ -80,7 +79,6 @@ This is a paragraph.
       role: 'user',
       content: `
 ## Hi from user
-
 This is a paragraph.
 `,
     },

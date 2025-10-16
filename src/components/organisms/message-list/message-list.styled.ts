@@ -20,5 +20,6 @@ export const MessageGroup = tw.div`
   flex
   flex-col
   gap-1
+  p-1
   last-of-type:min-h-[calc(100%-theme(spacing.2))]
 `

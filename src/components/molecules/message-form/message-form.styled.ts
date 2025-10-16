@@ -31,7 +31,7 @@ export const SendIcon = tw(SendHorizontal)`
 export const TextBox = tw.textarea`
   grow
   resize-none
-  rounded-lg
+  rounded-xl
   bg-white
   p-3
   text-sm
