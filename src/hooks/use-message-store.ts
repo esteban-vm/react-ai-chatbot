@@ -19,8 +19,6 @@ export const useMessageStore = create<MessageStore>()((set) => ({
   ],
 
   async sendMessage(content) {
-    console.log('sending message')
-
     const addMessage = (newMessage: Message) => {
       set((state) => ({ messages: [...state.messages, newMessage] }))
     }
