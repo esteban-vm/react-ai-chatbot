@@ -9,5 +9,16 @@ export const Container = tw.div`
   overflow-y-auto
   rounded-xl
   bg-white
-  pb-2
+`
+
+export const ListEnding = tw.span`
+  invisible
+  size-0
+`
+
+export const MessageGroup = tw.div`
+  flex
+  flex-col
+  gap-1
+  last-of-type:min-h-[calc(100%-theme(spacing.2))]
 `
