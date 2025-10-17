@@ -40,7 +40,7 @@ This is a paragraph.
       role: 'user',
       content: `
 \`\`\`js
- export  const greeting = "I will get JavaScript syntax highlighting";
+export const greeting = "I will get JavaScript syntax highlighting";
 \`\`\`
 `,
     },

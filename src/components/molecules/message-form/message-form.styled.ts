@@ -37,8 +37,7 @@ export const TextBox = tw.textarea`
   bg-neutral-100
   p-3
   text-sm
-  outline-1
-  outline-transparent
+  outline
   placeholder:italic
   valid:outline-green-300
   invalid:outline-red-300
