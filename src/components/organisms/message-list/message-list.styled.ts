@@ -8,7 +8,8 @@ export const Container = tw.div`
   gap-1
   overflow-y-auto
   rounded-xl
-  bg-white
+  bg-neutral-100
+  dark:bg-neutral-900
 `
 
 export const ListEnding = tw.span`

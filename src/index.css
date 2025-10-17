@@ -3,12 +3,16 @@
 
 @layer base {
   * {
-    /* scrollbar-width: thin; */
-    scrollbar-color: theme(--color-white) theme(--color-neutral-100);
+    scrollbar-width: thin;
+    scrollbar-color: theme(--color-neutral-100) theme(--color-neutral-300);
+
+    @variant dark {
+      scrollbar-color: theme(--color-neutral-900) theme(--color-neutral-700);
+    }
   }
 
   #root {
-    @apply flex h-screen w-full flex-col items-center justify-center bg-neutral-100 text-black;
+    @apply flex h-screen w-full flex-col items-center justify-center bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100;
   }
 }
 

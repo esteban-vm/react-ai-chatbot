@@ -16,23 +16,25 @@ export const SendButton = tw.button`
   items-center
   justify-center
   rounded-full
-  bg-white
+  bg-neutral-100
   transition-all
   enabled:active:scale-95
   disabled:cursor-not-allowed
   disabled:opacity-80
+  dark:bg-neutral-900
 `
 
 export const SendIcon = tw(SendHorizontal)`
   size-3/5
   stroke-neutral-300
+  dark:stroke-neutral-700
 `
 
 export const TextBox = tw.textarea`
   grow
   resize-none
   rounded-xl
-  bg-white
+  bg-neutral-100
   p-3
   text-sm
   outline-1
@@ -43,4 +45,8 @@ export const TextBox = tw.textarea`
   focus:outline-neutral-300
   disabled:cursor-not-allowed
   disabled:opacity-80
+  dark:bg-neutral-900
+  dark:valid:outline-green-700
+  dark:invalid:outline-red-700
+  dark:focus:outline-neutral-700
 `

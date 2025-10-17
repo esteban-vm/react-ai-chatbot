@@ -7,7 +7,9 @@ import * as $ from './message-item.styled'
 
 export function MessageItem({ role, content }: Message) {
   return (
-    <$.Container className={cn(role === 'user' ? 'self-end rounded-xl bg-neutral-100' : 'self-start')}>
+    <$.Container
+      className={cn(role === 'user' ? 'self-end rounded-xl bg-neutral-200 dark:bg-neutral-800' : 'self-start')}
+    >
       <Markdown
         remarkPlugins={[remarkGfm, remarkBreaks]}
         components={{

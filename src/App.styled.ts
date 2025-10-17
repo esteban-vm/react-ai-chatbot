@@ -21,6 +21,8 @@ export const Container = tw.main`
   flex-col
   gap-3
   rounded-xl
+  bg-neutral-200
   p-3
   shadow-lg
+  dark:bg-neutral-800
 `

@@ -8,4 +8,5 @@ export const Container = tw.div`
   items-center
   justify-center
   bg-neutral-200/60
+  dark:bg-neutral-800/60
 `
