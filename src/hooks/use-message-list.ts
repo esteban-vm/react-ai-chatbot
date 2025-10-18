@@ -6,7 +6,7 @@ export interface UseMessageListProps {
 }
 
 export function useMessageList({ shouldScroll, messageList }: UseMessageListProps) {
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<HTMLElement>(null!)
 
   const groups = useMemo(() => {
     return messageList.reduce<Message[][]>((groups, message) => {
@@ -18,7 +18,7 @@ export function useMessageList({ shouldScroll, messageList }: UseMessageListProp
 
   useEffect(() => {
     if (shouldScroll) {
-      ref.current?.scrollIntoView({ behavior: 'smooth' })
+      ref.current.scrollIntoView({ behavior: 'smooth' })
     }
   }, [shouldScroll])
 
