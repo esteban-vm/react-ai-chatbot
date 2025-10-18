@@ -8,12 +8,12 @@ export interface MessageFormValues {
 }
 
 export interface UseMessageFormProps {
-  isDisabled: boolean
+  shouldDisable: boolean
   onSendMessage: (content: string) => Promise<void>
 }
 
-export function useMessageForm({ isDisabled, onSendMessage }: UseMessageFormProps) {
-  const formRef = useRef<HTMLFormElement>(null!)
+export function useMessageForm({ shouldDisable, onSendMessage }: UseMessageFormProps) {
+  const ref = useRef<HTMLFormElement>(null!)
 
   const { register, handleSubmit, resetField, setFocus } = useForm<MessageFormValues>({
     mode: 'onChange',
@@ -22,12 +22,12 @@ export function useMessageForm({ isDisabled, onSendMessage }: UseMessageFormProp
   })
 
   useEffect(() => {
-    if (!isDisabled) {
+    if (!shouldDisable) {
       setFocus('message')
     }
-  }, [isDisabled, setFocus])
+  }, [shouldDisable, setFocus])
 
-  const messageField = register('message', {
+  const field = register('message', {
     validate: {
       checkLength(value) {
         const hasLength = value.trim().length > 0
@@ -41,17 +41,17 @@ export function useMessageForm({ isDisabled, onSendMessage }: UseMessageFormProp
     void onSendMessage(message)
   }
 
-  const handleKeyDown: KeyboardEventHandler<HTMLTextAreaElement> = (event) => {
+  const onKeyDown: KeyboardEventHandler<HTMLTextAreaElement> = (event) => {
     if (event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault()
-      formRef.current.requestSubmit()
+      ref.current.requestSubmit()
     }
   }
 
   return {
-    formRef,
-    messageField,
-    handleKeyDown,
+    ref,
+    field,
+    onKeyDown,
     onSubmit: handleSubmit(onSubmit),
   }
 }

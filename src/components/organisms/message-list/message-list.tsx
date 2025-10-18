@@ -6,9 +6,9 @@ import * as $ from './message-list.styled'
 export function MessageList() {
   const { isLoading, messages } = useMessageStore()
 
-  const { listEndingRef, messageGroups } = useMessageList({
-    messages,
+  const { ref, groups } = useMessageList({
     shouldScroll: !isLoading,
+    messageList: messages,
   })
 
   return (
@@ -17,7 +17,7 @@ export function MessageList() {
         <Molecules.LoadingSpinner />
       ) : (
         <>
-          {[WELCOME_MESSAGE_GROUP, ...MOCK_MESSAGE_GROUPS, ...messageGroups].map((messages) => {
+          {[WELCOME_MESSAGE_GROUP, ...MOCK_MESSAGE_GROUPS, ...groups].map((messages) => {
             return (
               <$.MessageGroup key={crypto.randomUUID()}>
                 {messages.map((message) => (
@@ -26,7 +26,7 @@ export function MessageList() {
               </$.MessageGroup>
             )
           })}
-          <$.ListEnding ref={listEndingRef} />
+          <$.ListEnding ref={ref} />
         </>
       )}
     </$.Container>
