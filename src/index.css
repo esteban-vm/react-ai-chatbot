@@ -9,6 +9,14 @@
     @variant dark {
       scrollbar-color: theme(--color-neutral-900) theme(--color-neutral-700);
     }
+
+    &::selection {
+      @apply bg-neutral-900 text-neutral-100;
+
+      @variant dark {
+        @apply bg-neutral-100 text-neutral-900;
+      }
+    }
   }
 
   #root {
