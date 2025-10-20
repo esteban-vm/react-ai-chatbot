@@ -3,7 +3,6 @@ import tw from 'tailwind-styled-components'
 export const IconButton = tw.div`
   size-full
   rounded-4xl
-  opacity-55
 `
 
 export const LocaleButton = tw.button`
@@ -14,8 +13,9 @@ export const LocaleButton = tw.button`
   rounded-full
   bg-neutral-100
   p-1
-  transition-all
-  hover:opacity-80
-  active:scale-90
+  opacity-75
+  transition-transform
+  hover:opacity-100
+  active:scale-95
   dark:bg-neutral-900
 `
