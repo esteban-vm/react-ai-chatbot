@@ -1,12 +1,5 @@
 import tw from 'tailwind-styled-components'
 
-export const IconButton = tw.div`
-  size-full
-  stroke-neutral-300
-  hover:opacity-80
-  dark:stroke-neutral-700
-`
-
 export const ThemeButton = tw.button`
   dark:bg-neutral-90
   aspect-square
@@ -15,5 +8,10 @@ export const ThemeButton = tw.button`
   rounded-full
   bg-neutral-100
   p-1
+  opacity-75
+  transition-transform
+  hover:opacity-100
+  active:scale-95
   dark:bg-neutral-900
+  [&_svg]:size-full
 `

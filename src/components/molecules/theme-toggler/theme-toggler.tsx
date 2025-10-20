@@ -1,4 +1,4 @@
-import { MonitorCog, Moon, Sun } from 'lucide-react'
+import { MonitorCog, MoonStar, Sun } from 'lucide-react'
 import { useEffect } from 'react'
 import { useThemeStore } from '@/hooks'
 import * as $ from './theme-toggler.styled'
@@ -24,13 +24,13 @@ export function ThemeToggler() {
   return (
     <>
       <$.ThemeButton title='Dark theme' onClick={() => setTheme('dark')}>
-        <$.IconButton $as={Moon} />
+        <MoonStar className='fill-violet-400 text-violet-500' />
       </$.ThemeButton>
       <$.ThemeButton title='Light theme' onClick={() => setTheme('light')}>
-        <$.IconButton $as={Sun} />
+        <Sun className='fill-amber-400 text-amber-500' />
       </$.ThemeButton>
       <$.ThemeButton title='System theme' onClick={() => setTheme('system')}>
-        <$.IconButton $as={MonitorCog} />
+        <MonitorCog className='fill-sky-400 text-emerald-500' />
       </$.ThemeButton>
     </>
   )
