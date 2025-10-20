@@ -6,17 +6,17 @@
 @layer base {
   * {
     scrollbar-width: thin;
-    scrollbar-color: theme(--color-neutral-100) theme(--color-neutral-300);
+    scrollbar-color: theme(--color-neutral-100) theme(--color-neutral-100);
 
     @variant dark {
       scrollbar-color: theme(--color-neutral-900) theme(--color-neutral-700);
     }
 
     &::selection {
-      @apply bg-neutral-900 text-neutral-100;
+      @apply bg-neutral-700 text-neutral-100;
 
       @variant dark {
-        @apply bg-neutral-100 text-neutral-900;
+        @apply bg-neutral-100 text-neutral-700;
       }
     }
   }
