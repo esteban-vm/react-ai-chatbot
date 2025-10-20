@@ -6,7 +6,7 @@
 @layer base {
   * {
     scrollbar-width: thin;
-    scrollbar-color: theme(--color-neutral-100) theme(--color-neutral-100);
+    scrollbar-color: theme(--color-neutral-100) theme(--color-neutral-300);
 
     @variant dark {
       scrollbar-color: theme(--color-neutral-900) theme(--color-neutral-700);
@@ -25,11 +25,3 @@
     @apply flex h-screen w-full flex-col items-center justify-center bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100;
   }
 }
-
-/* .glass-element {
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-} */
