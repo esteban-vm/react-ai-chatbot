@@ -22,18 +22,16 @@ export function ThemeToggler() {
   }, [resolvedTheme])
 
   return (
-    <$.Container>
-      <$.ButtonGroup>
-        <$.ThemeButton title='Dark theme' onClick={() => setTheme('dark')}>
-          <$.IconButton $as={Moon} />
-        </$.ThemeButton>
-        <$.ThemeButton title='Light theme' onClick={() => setTheme('light')}>
-          <$.IconButton $as={Sun} />
-        </$.ThemeButton>
-        <$.ThemeButton title='System theme' onClick={() => setTheme('system')}>
-          <$.IconButton $as={MonitorCog} />
-        </$.ThemeButton>
-      </$.ButtonGroup>
-    </$.Container>
+    <>
+      <$.ThemeButton title='Dark theme' onClick={() => setTheme('dark')}>
+        <$.IconButton $as={Moon} />
+      </$.ThemeButton>
+      <$.ThemeButton title='Light theme' onClick={() => setTheme('light')}>
+        <$.IconButton $as={Sun} />
+      </$.ThemeButton>
+      <$.ThemeButton title='System theme' onClick={() => setTheme('system')}>
+        <$.IconButton $as={MonitorCog} />
+      </$.ThemeButton>
+    </>
   )
 }

@@ -4,10 +4,17 @@ import * as $ from './app-header.styled'
 
 export function AppHeader() {
   return (
-    <$.Container>
-      <Molecules.ThemeToggler />
+    <header>
+      <$.ButtonGroupContainer>
+        <$.ButtonGroup>
+          <Molecules.LanguageSwitcher />
+        </$.ButtonGroup>
+        <$.ButtonGroup>
+          <Molecules.ThemeToggler />
+        </$.ButtonGroup>
+      </$.ButtonGroupContainer>
       <$.AppLogo alt='logo' src={logo} />
       <$.AppTitle>AI Chatbot</$.AppTitle>
-    </$.Container>
+    </header>
   )
 }

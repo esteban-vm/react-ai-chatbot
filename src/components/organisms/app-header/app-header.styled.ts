@@ -13,25 +13,20 @@ export const AppTitle = tw.h1`
 `
 
 export const ButtonGroup = tw.div`
-  w-fit
+  size-fit
   space-x-2
   rounded-full
   border
-  border-green-500
-  px-3
-  py-1.5
+  border-neutral-300
+  px-2
+  py-1
+  dark:border-neutral-700
 `
 
-export const Container = tw.header` `
-
-export const ThemeButton = tw.button`
-  dark:bg-neutral-90
-  aspect-square
-  size-8
-  cursor-pointer
-  rounded-full
-  bg-neutral-100
-  p-1
-  dark:bg-neutral-900
-  [&:svg]:size-full
+export const ButtonGroupContainer = tw.div`
+  -mb-5
+  flex
+  w-full
+  items-center
+  justify-between
 `
