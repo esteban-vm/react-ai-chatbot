@@ -1,4 +1,3 @@
-import { SendHorizontal } from 'lucide-react'
 import tw from 'tailwind-styled-components'
 
 export const Container = tw.form`
@@ -6,6 +5,12 @@ export const Container = tw.form`
   w-full
   items-center
   gap-3
+`
+
+export const IconButton = tw.div`
+  size-3/5
+  stroke-neutral-300
+  dark:stroke-neutral-700
 `
 
 export const SendButton = tw.button`
@@ -22,12 +27,6 @@ export const SendButton = tw.button`
   disabled:cursor-not-allowed
   disabled:opacity-80
   dark:bg-neutral-900
-`
-
-export const SendIcon = tw(SendHorizontal)`
-  size-3/5
-  stroke-neutral-300
-  dark:stroke-neutral-700
 `
 
 export const TextBox = tw.textarea`

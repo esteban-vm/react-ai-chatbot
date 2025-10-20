@@ -1,3 +1,4 @@
+import { SendHorizontal } from 'lucide-react'
 import TextareaAutosize from 'react-textarea-autosize'
 import { useMessageForm, useMessageStore } from '@/hooks'
 import * as $ from './message-form.styled'
@@ -22,7 +23,7 @@ export function MessageForm() {
         {...field}
       />
       <$.SendButton disabled={isLoading} title='Send message' type='submit'>
-        <$.SendIcon />
+        <$.IconButton $as={SendHorizontal} />
       </$.SendButton>
     </$.Container>
   )
