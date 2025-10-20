@@ -6,12 +6,13 @@ export const ButtonGroup = tw.div`
   rounded-full
   border
   border-neutral-300
-  px-3
-  py-1.5
+  px-2
+  py-1
   dark:border-neutral-700
 `
 
 export const Container = tw.div`
+  -mb-5
   flex
   w-full
   justify-end
@@ -27,7 +28,7 @@ export const IconButton = tw.div`
 export const ThemeButton = tw.button`
   dark:bg-neutral-90
   aspect-square
-  size-8
+  size-9
   cursor-pointer
   rounded-full
   bg-neutral-100
