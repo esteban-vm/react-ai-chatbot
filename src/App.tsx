@@ -4,7 +4,7 @@ import * as $ from './App.styled'
 export default function App() {
   return (
     <$.Container>
-      <Molecules.AppHeader />
+      <Organisms.AppHeader />
       <Organisms.MessageList />
       <Molecules.MessageForm />
     </$.Container>

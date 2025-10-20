@@ -10,6 +10,9 @@ declare global {
   }
 
   type Role = 'user' | 'assistant' | 'system'
+
+  type Theme = ResolvedTheme | 'system'
+  type ResolvedTheme = 'light' | 'dark'
 }
 
 export {}
