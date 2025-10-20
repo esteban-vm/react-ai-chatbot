@@ -8,7 +8,7 @@ export const ThemeButton = tw.button`
   rounded-full
   bg-neutral-100
   p-1
-  opacity-75
+  opacity-50
   transition-transform
   hover:opacity-100
   active:scale-95
