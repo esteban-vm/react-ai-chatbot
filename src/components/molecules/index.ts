@@ -1,5 +1,5 @@
+export * from './language-switcher'
 export * from './loading-spinner'
-export * from './locale-switcher'
 export * from './message-form'
 export * from './message-item'
-export * from './theme-toggler'
+export * from './theme-switcher'

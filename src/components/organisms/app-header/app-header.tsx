@@ -10,7 +10,7 @@ export function AppHeader() {
           <Molecules.LanguageSwitcher />
         </$.ButtonGroup>
         <$.ButtonGroup>
-          <Molecules.ThemeToggler />
+          <Molecules.ThemeSwitcher />
         </$.ButtonGroup>
       </$.ButtonGroupContainer>
       <$.AppLogo alt='logo' src={logo} />

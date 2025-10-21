@@ -1,5 +1,5 @@
 import { Atoms } from '@/components'
-import * as $ from './locale-switcher.styled'
+import * as $ from './language-switcher.styled'
 
 export function LanguageSwitcher() {
   return (

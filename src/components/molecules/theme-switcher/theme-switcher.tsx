@@ -1,9 +1,9 @@
 import { MonitorCog, MoonStar, Sun } from 'lucide-react'
 import { useEffect } from 'react'
 import { useThemeStore } from '@/hooks'
-import * as $ from './theme-toggler.styled'
+import * as $ from './theme-switcher.styled'
 
-export function ThemeToggler() {
+export function ThemeSwitcher() {
   const { theme, setTheme, resolvedTheme, setResolvedTheme } = useThemeStore()
 
   useEffect(() => {
