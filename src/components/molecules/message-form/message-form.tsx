@@ -1,10 +1,12 @@
 import { SendHorizontal } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import TextareaAutosize from 'react-textarea-autosize'
 import { useMessageForm, useMessageStore } from '@/hooks'
 import * as $ from './message-form.styled'
 
 export function MessageForm() {
   const { isLoading, sendMessage } = useMessageStore()
+  const { t } = useTranslation('translation', { keyPrefix: 'message_form' })
 
   const { ref, field, onKeyDown, onSubmit } = useMessageForm({
     shouldDisable: isLoading,
@@ -18,11 +20,11 @@ export function MessageForm() {
         disabled={isLoading}
         maxRows={4}
         minRows={2}
-        placeholder='Your message…'
+        placeholder={t('textbox')}
         onKeyDown={onKeyDown}
         {...field}
       />
-      <$.SendButton disabled={isLoading} title='Send message' type='submit'>
+      <$.SendButton disabled={isLoading} title={t('send_button')} type='submit'>
         <$.IconButton $as={SendHorizontal} />
       </$.SendButton>
     </$.Container>

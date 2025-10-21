@@ -2,6 +2,7 @@ import type { KeyboardEventHandler } from 'react'
 import type { SubmitHandler } from 'react-hook-form'
 import { useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 
 export interface MessageFormValues {
   message: string
@@ -14,6 +15,7 @@ export interface UseMessageFormProps {
 
 export function useMessageForm({ shouldDisable, onSendMessage }: UseMessageFormProps) {
   const ref = useRef<HTMLFormElement>(null!)
+  const { t } = useTranslation('translation', { keyPrefix: 'message_form' })
 
   const { register, handleSubmit, resetField, setFocus } = useForm<MessageFormValues>({
     mode: 'onChange',
@@ -31,7 +33,7 @@ export function useMessageForm({ shouldDisable, onSendMessage }: UseMessageFormP
     validate: {
       checkLength(value) {
         const hasLength = value.trim().length > 0
-        if (!hasLength) return 'Enter a message'
+        if (!hasLength) return t('validation')
       },
     },
   })

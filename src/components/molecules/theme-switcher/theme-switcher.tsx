@@ -1,10 +1,12 @@
 import { MonitorCog, MoonStar, Sun } from 'lucide-react'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useThemeStore } from '@/hooks'
 import * as $ from './theme-switcher.styled'
 
 export function ThemeSwitcher() {
   const { theme, setTheme, resolvedTheme, setResolvedTheme } = useThemeStore()
+  const { t } = useTranslation('translation', { keyPrefix: 'theme_switcher' })
 
   useEffect(() => {
     if (theme === 'system') {
@@ -23,13 +25,13 @@ export function ThemeSwitcher() {
 
   return (
     <>
-      <$.ThemeButton title='Dark theme' onClick={() => setTheme('dark')}>
+      <$.ThemeButton title={t('dark_button')} onClick={() => setTheme('dark')}>
         <MoonStar className='fill-violet-400 text-violet-500' />
       </$.ThemeButton>
-      <$.ThemeButton title='Light theme' onClick={() => setTheme('light')}>
+      <$.ThemeButton title={t('light_button')} onClick={() => setTheme('light')}>
         <Sun className='fill-amber-400 text-amber-500' />
       </$.ThemeButton>
-      <$.ThemeButton title='System theme' onClick={() => setTheme('system')}>
+      <$.ThemeButton title={t('system_button')} onClick={() => setTheme('system')}>
         <MonitorCog className='fill-sky-400 text-emerald-500' />
       </$.ThemeButton>
     </>
