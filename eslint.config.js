@@ -59,6 +59,7 @@ export default defineConfig([
           unnamedComponents: 'arrow-function',
         },
       ],
+      '@typescript-eslint/unbound-method': 'off',
       '@typescript-eslint/no-base-to-string': 'off',
       '@typescript-eslint/no-misused-promises': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
