@@ -1,6 +1,7 @@
 {
   "message_list": {
-    "welcome_message": "¡Hola 👋! ¿Cómo te puedo ayudar ahora?"
+    "welcome_message": "¡Hola 👋! ¿Cómo te puedo ayudar ahora?",
+    "error_message": "Lo siento, no pude procesar tu solicitud. Por favor, ¡intenta de nuevo!"
   },
   "message_form": {
     "textbox": "Tu mensaje…",
