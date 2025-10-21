@@ -8,7 +8,7 @@ export function MessageForm() {
   const { isLoading, sendMessage } = useMessageStore()
   const { t } = useTranslation('translation', { keyPrefix: 'message_form' })
 
-  const { ref, field, onKeyDown, onSubmit } = useMessageForm({
+  const { ref, field, error, onKeyDown, onSubmit } = useMessageForm({
     shouldDisable: isLoading,
     onSendMessage: sendMessage,
   })
@@ -17,6 +17,7 @@ export function MessageForm() {
     <$.Container ref={ref} onSubmit={onSubmit}>
       <$.TextBox
         $as={TextareaAutosize}
+        aria-invalid={!!error}
         disabled={isLoading}
         maxRows={4}
         minRows={2}
