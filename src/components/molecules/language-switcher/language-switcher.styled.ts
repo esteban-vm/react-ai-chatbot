@@ -5,7 +5,7 @@ export const IconButton = tw.div`
   rounded-4xl
 `
 
-export const LocaleButton = tw.button`
+export const LanguageButton = tw.button`
   dark:bg-neutral-90
   aspect-square
   size-10
