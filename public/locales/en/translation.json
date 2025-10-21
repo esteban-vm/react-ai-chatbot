@@ -2,7 +2,10 @@
   "message_form": {
     "textbox": "Your message…",
     "send_button": "Send message",
-    "validation": "Enter a message"
+    "validations": {
+      "length": "Please, enter a message",
+      "profanity": "Please, don't use bad words"
+    }
   },
   "theme_switcher": {
     "dark_button": "Dark theme",
