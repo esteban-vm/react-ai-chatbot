@@ -65,8 +65,9 @@ export default defineConfig([
       '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/no-empty-object-type': 'warn',
       '@typescript-eslint/consistent-type-imports': 'warn',
-      '@typescript-eslint/consistent-type-definitions': 'warn',
       '@typescript-eslint/prefer-nullish-coalescing': 'warn',
+      '@typescript-eslint/consistent-type-definitions': 'warn',
+      '@typescript-eslint/restrict-template-expressions': 'off',
       '@typescript-eslint/no-confusing-void-expression': 'off',
       '@typescript-eslint/prefer-destructuring': [
         'warn',
