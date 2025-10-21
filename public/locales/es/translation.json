@@ -1,4 +1,7 @@
 {
+  "message_list": {
+    "welcome_message": "¡Hola 👋! ¿Cómo te puedo ayudar ahora?"
+  },
   "message_form": {
     "textbox": "Tu mensaje…",
     "send_button": "Enviar mensaje",
