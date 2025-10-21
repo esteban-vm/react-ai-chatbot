@@ -18,7 +18,7 @@ export function useMessageForm({ shouldDisable, onSendMessage }: UseMessageFormP
   const ref = useRef<HTMLFormElement>(null!)
   const { t } = useTranslation('translation', { keyPrefix: 'message_form.validations' })
 
-  const { register, handleSubmit, resetField, setFocus } = useForm<MessageFormValues>({
+  const { register, handleSubmit, resetField, setFocus, formState } = useForm<MessageFormValues>({
     mode: 'onChange',
     defaultValues: { message: '' },
     shouldUseNativeValidation: true,
@@ -53,6 +53,7 @@ export function useMessageForm({ shouldDisable, onSendMessage }: UseMessageFormP
     ref,
     field,
     onKeyDown,
+    error: formState.errors.message,
     onSubmit: handleSubmit(onSubmit),
   }
 }
