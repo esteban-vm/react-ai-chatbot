@@ -1,0 +1,16 @@
+{
+  "message_form": {
+    "textbox": "Tu mensaje…",
+    "send_button": "Enviar mensaje",
+    "validation": "Ingresa un mensaje"
+  },
+  "theme_switcher": {
+    "dark_button": "Tema oscuro",
+    "light_button": "Tema claro",
+    "system_button": "Tema del sistema"
+  },
+  "language_switcher": {
+    "en_button": "Cambiar a inglés",
+    "es_button": "Cambiar a español"
+  }
+}
