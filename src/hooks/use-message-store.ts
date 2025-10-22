@@ -19,13 +19,13 @@ export const useMessageStore = create<MessageStore>()((set) => {
     isLoading: false,
     messages: [],
     async sendMessage(content) {
-      addMessage(new ChatMessage('user', content))
+      addMessage(ChatMessage.create('user', content))
       set({ isLoading: true, isError: false })
 
       try {
         // await new Promise((resolve) => setTimeout(resolve, 5_000))
         const reply = await assistant.chat(content)
-        addMessage(new ChatMessage('assistant', reply))
+        addMessage(ChatMessage.create('assistant', reply))
       } catch (error) {
         set({ isError: true })
         if (error instanceof ApiError) {
