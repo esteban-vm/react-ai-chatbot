@@ -39,6 +39,7 @@ export function useMessageForm({ shouldDisable, onSendMessage }: UseMessageFormP
 
   const onSubmit: SubmitHandler<MessageFormValues> = ({ message }) => {
     resetField('message')
+    navigator.vibrate(100)
     void onSendMessage(message)
   }
 
