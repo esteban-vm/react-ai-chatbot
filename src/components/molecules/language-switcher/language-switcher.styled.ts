@@ -8,7 +8,7 @@ export const IconButton = tw.div`
 export const LanguageButton = tw.button`
   dark:bg-neutral-90
   aspect-square
-  size-10
+  size-8
   cursor-pointer
   rounded-full
   bg-neutral-100
@@ -17,5 +17,6 @@ export const LanguageButton = tw.button`
   transition-transform
   hover:opacity-100
   active:scale-95
+  md:size-10
   dark:bg-neutral-900
 `

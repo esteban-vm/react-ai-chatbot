@@ -16,7 +16,7 @@ export const IconButton = tw.div`
 export const SendButton = tw.button`
   flex
   aspect-square
-  size-16
+  size-14
   cursor-pointer
   items-center
   justify-center
@@ -26,6 +26,7 @@ export const SendButton = tw.button`
   enabled:active:scale-95
   disabled:cursor-not-allowed
   disabled:opacity-80
+  md:size-16
   dark:bg-neutral-900
 `
 
@@ -34,7 +35,7 @@ export const TextBox = tw.textarea`
   resize-none
   rounded-xl
   bg-neutral-100
-  p-3
+  p-2
   text-sm
   outline
   outline-transparent
@@ -44,6 +45,7 @@ export const TextBox = tw.textarea`
   focus:outline-neutral-300
   disabled:cursor-not-allowed
   disabled:opacity-80
+  md:p-3
   dark:bg-neutral-900
   dark:valid:outline-green-700
   dark:invalid:outline-red-700

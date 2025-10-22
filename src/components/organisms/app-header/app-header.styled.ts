@@ -2,14 +2,16 @@ import tw from 'tailwind-styled-components'
 
 export const AppLogo = tw.img`
   mx-auto
-  size-16
+  size-14
   select-none
+  md:size-16
 `
 
 export const AppTitle = tw.h1`
   text-center
-  text-3xl
+  text-2xl
   font-semibold
+  md:text-3xl
 `
 
 export const ButtonGroup = tw.div`
