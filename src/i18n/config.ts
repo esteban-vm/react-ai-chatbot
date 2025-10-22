@@ -10,7 +10,6 @@ await i18n
   .init({
     fallbackLng: 'en',
     defaultNS: 'translation',
-    debug: import.meta.env.DEV,
     interpolation: {
       escapeValue: false,
     },
