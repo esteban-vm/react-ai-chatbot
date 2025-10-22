@@ -1,78 +1,24 @@
-// export const MOCK_MESSAGE_GROUPS: Message[][] = [
-//   [
-//     {
-//       role: 'user',
-//       content: 'Hey',
-//     },
-//     {
-//       role: 'assistant',
-//       content: 'A paragraph with *emphasis* and **strong importance**.',
-//     },
-//   ],
-//   [
-//     {
-//       role: 'user',
-//       content: 'A block quote with ~strikethrough~ and a URL: https://reactjs.org.',
-//     },
-//     {
-//       role: 'assistant',
-//       content: `
-// ## Hi from assistant
-// This is a paragraph.
-// `,
-//     },
-//   ],
-//   [
-//     {
-//       role: 'user',
-//       content: `
-// ## Hi from user
-// This is a paragraph.
-// `,
-//     },
-//     {
-//       role: 'assistant',
-//       content: '### This is perfect!',
-//     },
-//   ],
-//   [
-//     {
-//       role: 'user',
-//       content: `
-// \`\`\`js
-// export const greeting = "I will get JavaScript syntax highlighting";
-// \`\`\`
-// `,
-//     },
-//     {
-//       role: 'assistant',
-//       content: `
-// - term1
-// - : My description of term1
-// `,
-//     },
-//   ],
-//   [
-//     {
-//       role: 'user',
-//       content: '_Test_',
-//     },
-//     {
-//       role: 'assistant',
-//       content: `
-// \`\`\`js
-// function createClassNameString(classNames) {
-//   return classNames.join(' ');
-// }
-// \`\`\`
-// `,
-//     },
-//   ],
-// ]
+import { ChatMessage } from '@/utils/chat-message'
 
-// export const WELCOME_MESSAGE_GROUP: Message[] = [
-//   {
-//     role: 'system',
-//     content: 'Hello! How can I assist you right now?',
-//   },
-// ]
+export const mockGroups: ChatMessage[][] = [
+  [
+    new ChatMessage('user', 'hey'),
+    new ChatMessage('assistant', 'A paragraph with *emphasis* and **strong importance**.'),
+  ],
+  [
+    new ChatMessage('user', 'A block quote with ~strikethrough~ and a URL: https://reactjs.org.'),
+    new ChatMessage('assistant', `\n## Hi from assistant\nThis is a paragraph.\n`),
+  ],
+  [
+    new ChatMessage('user', `\n## Hi from user\nThis is a paragraph.\n`),
+    new ChatMessage('assistant', '### This is perfect!'),
+  ],
+  [
+    new ChatMessage('user', `\n\`\`\`js\nexport const greeting = "I will get JavaScript syntax highlighting";\n\`\`\``),
+    new ChatMessage('assistant', `\n- term1\n- : My description of term1`),
+  ],
+  [
+    new ChatMessage('user', '_Test_'),
+    new ChatMessage('assistant', `\n\`\`\`js\nfunction joinClasses(classes) {\n  return classes.join(' ');\n}\n\`\`\``),
+  ],
+]
