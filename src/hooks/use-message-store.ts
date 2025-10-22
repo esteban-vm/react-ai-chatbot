@@ -1,42 +1,36 @@
 import { create } from 'zustand'
 
-// import { AIAssistant } from '@/utils'
-
-// const assistant = new AIAssistant('gemini-2.5-flash')
-
 export interface MessageStore {
-  isLoading: boolean
   messages: Message[]
+  isLoading: boolean
   sendMessage: (content: string) => Promise<void>
 }
 
-export const useMessageStore = create<MessageStore>()((set) => ({
-  isLoading: false,
-  messages: [],
+export const useMessageStore = create<MessageStore>()((set) => {
+  const addMessage = (newMessage: Message) => {
+    set((state) => ({ messages: [...state.messages, newMessage] }))
+  }
 
-  async sendMessage(content) {
-    const addMessage = (newMessage: Message) => {
-      set((state) => ({ messages: [...state.messages, newMessage] }))
-    }
+  return {
+    messages: [],
+    isLoading: false,
+    async sendMessage(content) {
+      addMessage({ role: 'user', content })
+      set({ isLoading: true })
 
-    addMessage({ role: 'user', content })
-    set({ isLoading: true })
-
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1_000))
-      // const reply = await assistant.chat(content)
-      // addMessage({ role: 'assistant', content: reply })
-    } catch (error) {
-      if (import.meta.env.DEV) {
-        console.log(error)
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 1000))
+      } catch (error) {
+        if (import.meta.env.DEV) console.log(error)
+        addMessage({ role: 'system', content: 'Error' })
+      } finally {
+        set({ isLoading: false })
       }
+    },
+  }
+})
 
-      addMessage({
-        role: 'system',
-        content: "Sorry, I couldn't process your request. Please try again!",
-      })
-    } finally {
-      set({ isLoading: false })
-    }
-  },
-}))
+// import { AIAssistant } from '@/utils'
+// const assistant = new AIAssistant('gemini-2.5-flash')
+// const reply = await assistant.chat(content)
+// addMessage({ role: 'assistant', content: reply })
