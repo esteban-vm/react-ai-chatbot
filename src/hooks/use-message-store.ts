@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 
 export interface MessageStore {
-  messages: Message[]
+  isError: boolean
   isLoading: boolean
+  messages: Message[]
   sendMessage: (content: string) => Promise<void>
 }
 
@@ -12,17 +13,18 @@ export const useMessageStore = create<MessageStore>()((set) => {
   }
 
   return {
-    messages: [],
+    isError: false,
     isLoading: false,
+    messages: [],
     async sendMessage(content) {
       addMessage({ role: 'user', content })
-      set({ isLoading: true })
+      set({ isLoading: true, isError: false })
 
       try {
-        await new Promise((resolve) => setTimeout(resolve, 1000))
+        await new Promise((resolve) => setTimeout(resolve, 5_000))
       } catch (error) {
         if (import.meta.env.DEV) console.log(error)
-        addMessage({ role: 'system', content: 'Error' })
+        set({ isError: true })
       } finally {
         set({ isLoading: false })
       }

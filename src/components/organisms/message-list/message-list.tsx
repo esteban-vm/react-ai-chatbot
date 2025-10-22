@@ -4,13 +4,9 @@ import { useMessageList, useMessageStore } from '@/hooks'
 import * as $ from './message-list.styled'
 
 export function MessageList() {
-  const { isLoading, messages } = useMessageStore()
+  const { isLoading, isError, messages } = useMessageStore()
   const { t } = useTranslation('translation', { keyPrefix: 'message_list' })
-
-  const { ref, groups } = useMessageList({
-    shouldScroll: !isLoading,
-    messageList: messages,
-  })
+  const { ref, groups } = useMessageList({ shouldScroll: !isLoading, messageList: messages })
 
   const WELCOME_MESSAGE_GROUP: Message[] = [
     {
@@ -19,13 +15,26 @@ export function MessageList() {
     },
   ]
 
+  const messageGroups: Message[][] = [WELCOME_MESSAGE_GROUP, ...groups]
+
+  if (isError) {
+    const ERROR_MESSAGE_GROUP: Message[] = [
+      {
+        role: 'system',
+        content: `**${t('error_message')}**`,
+      },
+    ]
+
+    messageGroups.push(ERROR_MESSAGE_GROUP)
+  }
+
   return (
     <$.Container>
       {isLoading ? (
         <Molecules.LoadingSpinner />
       ) : (
         <>
-          {[WELCOME_MESSAGE_GROUP, ...groups].map((messages) => {
+          {messageGroups.map((messages) => {
             return (
               <$.MessageGroup key={crypto.randomUUID()}>
                 {messages.map((message) => (
