@@ -5,6 +5,7 @@ declare global {
   }
 
   interface Message {
+    id: string
     role: Role
     content?: string
   }

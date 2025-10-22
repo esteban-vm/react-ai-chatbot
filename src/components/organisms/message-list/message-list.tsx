@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import uniqid from 'uniqid'
 import { Molecules } from '@/components'
 import { useMessageList, useMessageStore } from '@/hooks'
 import * as $ from './message-list.styled'
@@ -10,6 +11,7 @@ export function MessageList() {
 
   const WELCOME_MESSAGE_GROUP: Message[] = [
     {
+      id: uniqid(),
       role: 'system',
       content: `**${t('welcome_message')}**`,
     },
@@ -20,6 +22,7 @@ export function MessageList() {
   if (isError) {
     const ERROR_MESSAGE_GROUP: Message[] = [
       {
+        id: uniqid(),
         role: 'system',
         content: `**${t('error_message')}**`,
       },
@@ -34,11 +37,12 @@ export function MessageList() {
         <Molecules.LoadingSpinner />
       ) : (
         <>
-          {messageGroups.map((messages) => {
+          {messageGroups.map((messages, index) => {
             return (
-              <$.MessageGroup key={crypto.randomUUID()}>
+              // eslint-disable-next-line react/no-array-index-key
+              <$.MessageGroup key={index}>
                 {messages.map((message) => (
-                  <Molecules.MessageItem key={crypto.randomUUID()} {...message} />
+                  <Molecules.MessageItem key={message.id} {...message} />
                 ))}
               </$.MessageGroup>
             )
