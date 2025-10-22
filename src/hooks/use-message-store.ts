@@ -1,4 +1,6 @@
+import { ApiError } from '@google/genai'
 import { create } from 'zustand'
+import { AIAssistant } from '@/utils'
 
 export interface MessageStore {
   isError: boolean
@@ -8,7 +10,7 @@ export interface MessageStore {
 }
 
 export const useMessageStore = create<MessageStore>()((set) => {
-  const addMessage = (newMessage: Message) => {
+  const appendMessage = (newMessage: Message) => {
     set((state) => ({ messages: [...state.messages, newMessage] }))
   }
 
@@ -17,14 +19,20 @@ export const useMessageStore = create<MessageStore>()((set) => {
     isLoading: false,
     messages: [],
     async sendMessage(content) {
-      addMessage({ role: 'user', content })
+      appendMessage({ role: 'user', content })
       set({ isLoading: true, isError: false })
 
       try {
-        await new Promise((resolve) => setTimeout(resolve, 5_000))
+        // await new Promise((resolve) => setTimeout(resolve, 5_000))
+        const reply = await assistant.chat(content)
+        appendMessage({ role: 'assistant', content: reply })
       } catch (error) {
-        if (import.meta.env.DEV) console.log(error)
         set({ isError: true })
+        if (error instanceof ApiError) {
+          alert(error.message)
+        } else if (import.meta.env.DEV) {
+          console.log(error)
+        }
       } finally {
         set({ isLoading: false })
       }
@@ -32,7 +40,4 @@ export const useMessageStore = create<MessageStore>()((set) => {
   }
 })
 
-// import { AIAssistant } from '@/utils'
-// const assistant = new AIAssistant('gemini-2.5-flash')
-// const reply = await assistant.chat(content)
-// addMessage({ role: 'assistant', content: reply })
+const assistant = new AIAssistant('gemini-2.5-flash')
