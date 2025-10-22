@@ -1,20 +1,20 @@
 import { useEffect, useMemo, useRef } from 'react'
 
 export interface UseMessageListProps {
+  messages: Message[]
   shouldScroll: boolean
-  messageList: Message[]
 }
 
-export function useMessageList({ shouldScroll, messageList }: UseMessageListProps) {
+export function useMessageList({ messages, shouldScroll }: UseMessageListProps) {
   const ref = useRef<HTMLElement>(null!)
 
   const groups = useMemo(() => {
-    return messageList.reduce<Message[][]>((groups, message) => {
+    return messages.reduce<Message[][]>((groups, message) => {
       if (message.role === 'user') groups.push([])
       groups.at(-1)?.push(message)
       return groups
     }, [])
-  }, [messageList])
+  }, [messages])
 
   useEffect(() => {
     if (shouldScroll) {

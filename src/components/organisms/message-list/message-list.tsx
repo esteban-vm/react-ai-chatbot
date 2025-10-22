@@ -6,7 +6,7 @@ import * as $ from './message-list.styled'
 export function MessageList() {
   const { isLoading, isError, messages } = useMessageStore()
   const { t } = useTranslation('translation', { keyPrefix: 'message_list' })
-  const { ref, groups } = useMessageList({ shouldScroll: !isLoading, messageList: messages })
+  const { ref, groups } = useMessageList({ messages, shouldScroll: !isLoading })
 
   const WELCOME_MESSAGE_GROUP: Message[] = [
     {
