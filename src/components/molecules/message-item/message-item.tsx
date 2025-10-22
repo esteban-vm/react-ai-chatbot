@@ -1,3 +1,4 @@
+import type { ChatMessage } from '@/utils'
 import Markdown from 'react-markdown'
 import remarkBreaks from 'remark-breaks'
 import remarkGfm from 'remark-gfm'
@@ -5,10 +6,17 @@ import { Atoms } from '@/components'
 import { cn } from '@/utils'
 import * as $ from './message-item.styled'
 
-export function MessageItem({ role, content }: Message) {
+export interface MessageItemProps {
+  message: ChatMessage
+}
+
+export function MessageItem({ message }: MessageItemProps) {
+  const { id, role, content } = message
+
   return (
     <$.Container
       className={cn(role === 'user' ? 'self-end rounded-xl bg-neutral-200 dark:bg-neutral-800' : 'self-start')}
+      id={id}
     >
       <Markdown
         remarkPlugins={[remarkGfm, remarkBreaks]}

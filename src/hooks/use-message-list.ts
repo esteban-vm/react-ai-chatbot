@@ -1,15 +1,16 @@
+import type { ChatMessage } from '@/utils'
 import { useEffect, useMemo, useRef } from 'react'
 
 export interface UseMessageListProps {
-  messages: Message[]
+  messages: ChatMessage[]
   shouldScroll: boolean
 }
 
 export function useMessageList({ messages, shouldScroll }: UseMessageListProps) {
   const ref = useRef<HTMLElement>(null!)
 
-  const groups = useMemo(() => {
-    return messages.reduce<Message[][]>((groups, message) => {
+  const groups: ChatMessage[][] = useMemo(() => {
+    return messages.reduce<ChatMessage[][]>((groups, message) => {
       if (message.role === 'user') groups.push([])
       groups.at(-1)?.push(message)
       return groups

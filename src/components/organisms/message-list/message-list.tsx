@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import uniqid from 'uniqid'
 import { Molecules } from '@/components'
 import { useMessageList, useMessageStore } from '@/hooks'
+import { ChatMessage } from '@/utils'
 import * as $ from './message-list.styled'
 
 export function MessageList() {
@@ -9,26 +9,12 @@ export function MessageList() {
   const { t } = useTranslation('translation', { keyPrefix: 'message_list' })
   const { ref, groups } = useMessageList({ messages, shouldScroll: !isLoading })
 
-  const WELCOME_MESSAGE_GROUP: Message[] = [
-    {
-      id: uniqid(),
-      role: 'system',
-      content: `**${t('welcome_message')}**`,
-    },
-  ]
-
-  const messageGroups: Message[][] = [WELCOME_MESSAGE_GROUP, ...groups]
+  const WELCOME_MESSAGE_GROUP = new ChatMessage('system', `**${t('welcome_message')}**`)
+  const messageGroups: ChatMessage[][] = [[WELCOME_MESSAGE_GROUP], ...groups]
 
   if (isError) {
-    const ERROR_MESSAGE_GROUP: Message[] = [
-      {
-        id: uniqid(),
-        role: 'system',
-        content: `**${t('error_message')}**`,
-      },
-    ]
-
-    messageGroups.push(ERROR_MESSAGE_GROUP)
+    const ERROR_MESSAGE_GROUP = new ChatMessage('system', `**${t('error_message')}**`)
+    messageGroups.push([ERROR_MESSAGE_GROUP])
   }
 
   return (
@@ -42,7 +28,7 @@ export function MessageList() {
               // eslint-disable-next-line react/no-array-index-key
               <$.MessageGroup key={index}>
                 {messages.map((message) => (
-                  <Molecules.MessageItem key={message.id} {...message} />
+                  <Molecules.MessageItem key={message.id} message={message} />
                 ))}
               </$.MessageGroup>
             )
