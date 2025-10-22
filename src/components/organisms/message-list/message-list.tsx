@@ -9,12 +9,12 @@ export function MessageList() {
   const { t } = useTranslation('translation', { keyPrefix: 'message_list' })
   const { ref, groups } = useMessageList({ messages, shouldScroll: !isLoading })
 
-  const WELCOME_MESSAGE_GROUP = new ChatMessage('system', `**${t('welcome_message')}**`)
-  const messageGroups: ChatMessage[][] = [[WELCOME_MESSAGE_GROUP], ...groups]
+  const welcomeMessage = new ChatMessage('system', `**${t('welcome_message')}**`)
+  const messageGroups: ChatMessage[][] = [[welcomeMessage], ...groups]
 
   if (isError) {
-    const ERROR_MESSAGE_GROUP = new ChatMessage('system', `**${t('error_message')}**`)
-    messageGroups.push([ERROR_MESSAGE_GROUP])
+    const errorMessage = new ChatMessage('system', `**${t('error_message')}**`)
+    messageGroups.push([errorMessage])
   }
 
   return (
