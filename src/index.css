@@ -25,7 +25,11 @@
     }
   }
 
+  body {
+    @apply bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100;
+  }
+
   #root {
-    @apply flex h-screen w-full flex-col items-center justify-center bg-neutral-100 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100;
+    @apply flex h-screen w-full flex-col items-center justify-center;
   }
 }
