@@ -1,4 +1,3 @@
-import logo from '@/assets/chat-bot.png'
 import { Molecules } from '@/components'
 import * as $ from './app-header.styled'
 
@@ -13,7 +12,7 @@ export function AppHeader() {
           <Molecules.ThemeSwitcher />
         </$.ButtonGroup>
       </$.ButtonGroupContainer>
-      <$.AppLogo alt='logo' src={logo} />
+      <$.AppLogo alt='logo' src='/images/chat-bot.png' />
       <$.AppTitle>AI Chatbot</$.AppTitle>
     </header>
   )
