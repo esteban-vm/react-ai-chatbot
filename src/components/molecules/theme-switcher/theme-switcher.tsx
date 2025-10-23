@@ -10,7 +10,7 @@ export function ThemeSwitcher() {
 
   useEffect(() => {
     if (theme === 'system') {
-      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      const isDark = matchMedia('(prefers-color-scheme: dark)').matches
       setTheme(isDark ? 'dark' : 'light')
     } else {
       setResolvedTheme(theme)
