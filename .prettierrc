@@ -15,7 +15,7 @@
     "prettier-plugin-merge"
   ],
   "tailwindFunctions": ["clsx", "cn", "tw"],
-  "tailwindStylesheet": "./src/index.css",
+  "tailwindStylesheet": "./src/styles/globals.css",
   "importOrder": [
     "<TYPES>^(node:)",
     "<TYPES>",
