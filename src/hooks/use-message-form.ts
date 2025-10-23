@@ -44,7 +44,10 @@ export function useMessageForm({ shouldDisable, onSendMessage }: UseMessageFormP
   }
 
   const onKeyDown: KeyboardEventHandler<HTMLTextAreaElement> = (event) => {
-    if (event.key === 'Enter' && !event.shiftKey) {
+    const isTouchScreen = matchMedia('(pointer: coarse)').matches
+    const isEnterPressed = event.key === 'Enter' && !event.shiftKey
+
+    if (!isTouchScreen && isEnterPressed) {
       event.preventDefault()
       ref.current.requestSubmit()
     }
