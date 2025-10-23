@@ -14,9 +14,7 @@ export default defineConfig({
     }),
     VitePWA({
       registerType: 'autoUpdate',
-      devOptions: {
-        enabled: true,
-      },
+      devOptions: { enabled: true },
       manifest: {
         id: '/',
         name: 'React AI Chatbot',
@@ -79,7 +77,7 @@ export default defineConfig({
         ],
       },
       includeAssets: ['**/*'],
-      workbox: { globPatterns: ['**/*.json'] },
+      workbox: { globPatterns: ['**/*.{js.css,html,png,webp,svg,ico,ttf,json}'] },
     }),
     tsconfigPaths(),
     tailwindcss(),
