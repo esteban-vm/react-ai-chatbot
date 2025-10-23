@@ -1,5 +1,5 @@
 import { Molecules, Organisms } from '@/components'
-import * as $ from './App.styled'
+import * as $ from '@/styles/app.styled'
 
 export default function App() {
   return (
