@@ -77,9 +77,11 @@ export default defineConfig({
         ],
       },
       includeAssets: ['**/*'],
-      workbox: { globPatterns: ['**/*.{js.css,html,png,webp,svg,ico,ttf,json}'] },
     }),
     tsconfigPaths(),
     tailwindcss(),
   ],
+  build: {
+    chunkSizeWarningLimit: 1_500,
+  },
 })
