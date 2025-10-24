@@ -1,4 +1,4 @@
-import { ChatMessage } from '@/utils/chat-message'
+import { ChatMessage } from '@/utils'
 
 export const mockGroups: ChatMessage[][] = [
   [
