@@ -59,9 +59,9 @@ importers:
       remark-gfm:
         specifier: ^4.0.1
         version: 4.0.1
-      uniqid:
-        specifier: ^5.4.0
-        version: 5.4.0
+      uuid:
+        specifier: ^13.0.0
+        version: 13.0.0
       zustand:
         specifier: ^5.0.8
         version: 5.0.8(@types/react@19.2.2)(react@19.2.0)
@@ -3543,9 +3543,6 @@ packages:
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
 
-  uniqid@5.4.0:
-    resolution: {integrity: sha512-38JRbJ4Fj94VmnC7G/J/5n5SC7Ab46OM5iNtSstB/ko3l1b5g7ALt4qzHFgGciFkyiRNtDXtLNb+VsxtMSE77A==}
-
   unique-string@2.0.0:
     resolution: {integrity: sha512-uNaeirEPvpZWSgzwsPGtU2zVSTrn/8L5q/IexZmH0eH6SA73CmAA5U4GwORTxQAZs95TAXLNqeLoPPNO5gZfWg==}
     engines: {node: '>=8'}
@@ -3611,6 +3608,10 @@ packages:
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+
+  uuid@13.0.0:
+    resolution: {integrity: sha512-XQegIaBTVUjSHliKqcnFqYypAd4S+WCYt5NIeRs6w/UAry7z8Y9j5ZwRRL4kzq9U3sD6v+85er9FvkEaBpji2w==}
+    hasBin: true
 
   uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
@@ -7673,8 +7674,6 @@ snapshots:
       trough: 2.2.0
       vfile: 6.0.3
 
-  uniqid@5.4.0: {}
-
   unique-string@2.0.0:
     dependencies:
       crypto-random-string: 2.0.0
@@ -7736,6 +7735,8 @@ snapshots:
       '@types/react': 19.2.2
 
   util-deprecate@1.0.2: {}
+
+  uuid@13.0.0: {}
 
   uuid@9.0.1: {}
 

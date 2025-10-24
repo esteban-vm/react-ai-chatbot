@@ -29,7 +29,7 @@
     "react-textarea-autosize": "^8.5.9",
     "remark-breaks": "^4.0.0",
     "remark-gfm": "^4.0.1",
-    "uniqid": "^5.4.0",
+    "uuid": "^13.0.0",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
