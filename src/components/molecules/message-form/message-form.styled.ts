@@ -1,10 +1,24 @@
 import tw from 'tailwind-styled-components'
 
-export const Container = tw.form`
+export const Container = tw.fieldset`
   flex
   w-full
   items-center
   gap-3
+`
+
+export const ErrorFeedback = tw.small`
+  mx-3
+  text-xs
+  text-red-700
+  dark:text-red-300
+`
+
+export const FormControl = tw.div`
+  flex
+  grow
+  flex-col
+  gap-0.5
 `
 
 export const IconButton = tw.div`
@@ -31,7 +45,7 @@ export const SendButton = tw.button`
 `
 
 export const TextBox = tw.textarea`
-  grow
+  w-full
   resize-none
   rounded-xl
   bg-neutral-100
