@@ -30,7 +30,7 @@ export function MessageForm() {
             onKeyDown={onKeyDown}
             {...field}
           />
-          <$.ErrorFeedback className={cn(!error && 'hidden')} id={errorId}>
+          <$.ErrorFeedback className={cn(!error && 'hidden')} id={errorId} role='alert'>
             {error?.message}
           </$.ErrorFeedback>
         </$.FormControl>
