@@ -14,10 +14,7 @@ export function MessageItem({ message }: MessageItemProps) {
   const { id, role, content } = message
 
   return (
-    <$.Container
-      className={cn(role === 'user' ? 'self-end rounded-xl bg-neutral-200 dark:bg-neutral-800' : 'self-start')}
-      id={id}
-    >
+    <$.Container className={cn(role === 'user' ? 'self-end' : 'self-start')} id={id}>
       <Markdown
         remarkPlugins={[remarkGfm, remarkBreaks]}
         components={{
