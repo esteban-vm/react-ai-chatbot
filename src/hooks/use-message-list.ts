@@ -19,7 +19,7 @@ export function useMessageList({ messages, shouldScroll }: UseMessageListProps) 
 
   useEffect(() => {
     if (shouldScroll) {
-      ref.current.scrollIntoView({ behavior: 'smooth' })
+      // ref.current.scrollIntoView({ behavior: 'smooth' })
     }
   }, [shouldScroll])
 
