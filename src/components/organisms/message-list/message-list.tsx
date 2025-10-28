@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import { Molecules } from '@/components'
-import { mockGroups } from '@/constants'
 import { useMessageList, useMessageStore } from '@/hooks'
 import { ChatMessage } from '@/utils'
 import * as $ from './message-list.styled'
@@ -11,7 +10,7 @@ export function MessageList() {
   const { groups } = useMessageList({ messages, shouldScroll: !isLoading })
 
   const welcomeMessage = ChatMessage.create('system', `**${t('welcome_message')}**`)
-  const messageGroups: ChatMessage[][] = [[welcomeMessage], ...mockGroups, ...groups]
+  const messageGroups: ChatMessage[][] = [[welcomeMessage], ...groups]
 
   if (isError) {
     const errorMessage = ChatMessage.create('system', `**${t('error_message')}**`)
