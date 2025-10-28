@@ -5,22 +5,16 @@ export const Container = tw.div`
   flex
   grow
   flex-col
-  gap-1
   overflow-y-auto
   rounded-xl
   bg-neutral-100
-  p-1
+  p-0.5
   dark:bg-neutral-900
 `
 
-export const ListEnding = tw.span`
-  invisible
-  size-0
-`
-
-export const MessageGroup = tw.div`
+export const MessageGroup = tw.article`
   flex
   flex-col
   gap-1
-  last-of-type:min-h-[calc(100%-theme(spacing.2))]
+  p-0.5
 `

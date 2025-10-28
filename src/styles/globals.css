@@ -32,4 +32,12 @@
   #root {
     @apply flex h-screen w-full flex-col items-center justify-center;
   }
+
+  article[data-message]:last-of-type {
+    @apply min-h-full;
+
+    &::after {
+      @apply bg-transparent text-[0.5px] text-transparent content-["a"];
+    }
+  }
 }
