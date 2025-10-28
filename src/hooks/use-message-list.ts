@@ -1,5 +1,5 @@
 import type { ChatMessage } from '@/utils'
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo } from 'react'
 
 export interface UseMessageListProps {
   messages: ChatMessage[]
@@ -7,21 +7,23 @@ export interface UseMessageListProps {
 }
 
 export function useMessageList({ messages, shouldScroll }: UseMessageListProps) {
-  const ref = useRef<HTMLElement>(null!)
-
   const groups: ChatMessage[][] = useMemo(() => {
-    return messages.reduce<ChatMessage[][]>((groups, message) => {
-      if (message.role === 'user') groups.push([])
-      groups.at(-1)?.push(message)
-      return groups
+    return messages.reduce<ChatMessage[][]>((group, message) => {
+      if (message.role === 'user') group.push([])
+      group.at(-1)?.push(message)
+      return group
     }, [])
   }, [messages])
 
   useEffect(() => {
     if (shouldScroll) {
-      // ref.current.scrollIntoView({ behavior: 'smooth' })
+      const lastMessageGroup = document.querySelector<HTMLElement>('article[data-message]:last-of-type')
+
+      if (lastMessageGroup?.dataset.message) {
+        lastMessageGroup.scrollIntoView({ behavior: 'smooth' })
+      }
     }
   }, [shouldScroll])
 
-  return { ref, groups }
+  return { groups }
 }
