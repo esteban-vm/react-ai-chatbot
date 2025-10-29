@@ -17,11 +17,8 @@ export function useMessageList({ messages, shouldScroll }: UseMessageListProps) 
 
   useEffect(() => {
     if (shouldScroll) {
-      const lastMessageGroup = document.querySelector<HTMLElement>('article[data-message]:last-of-type')
-
-      if (lastMessageGroup?.dataset.message) {
-        lastMessageGroup.scrollIntoView({ behavior: 'smooth' })
-      }
+      const lastGroup = document.querySelector('article[data-message]:last-of-type')!
+      lastGroup.scrollIntoView({ behavior: 'smooth' })
     }
   }, [shouldScroll])
 
