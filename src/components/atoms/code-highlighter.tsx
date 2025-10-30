@@ -8,7 +8,7 @@ export function CodeHighlighter(props: SyntaxHighlighterProps) {
 
   return (
     <SyntaxHighlighter
-      codeTagProps={{ style: { whiteSpace: 'pre-wrap', fontSize: '0.75rem' } }}
+      // codeTagProps={{ style: { whiteSpace: 'pre-wrap', fontSize: '0.75rem' } }}
       style={theme === 'dark' ? oneDark : oneLight}
       showLineNumbers
       {...props}
