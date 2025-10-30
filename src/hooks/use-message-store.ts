@@ -21,10 +21,7 @@ export const useMessageStore = create<MessageStore>()((set) => {
       return {
         messages: messages.map((message, index) => {
           if (index === messages.length - 1) {
-            return {
-              ...message,
-              content: `${message.content}${content}`,
-            }
+            return ChatMessage.create(message.role, `${message.content}${content}`)
           }
 
           return message
