@@ -6,7 +6,7 @@ export interface UseMessageListProps {
   shouldScroll: boolean
 }
 
-export function useMessageList({ messages, shouldScroll }: UseMessageListProps) {
+export function useMessageList({ shouldScroll, messages }: UseMessageListProps) {
   const groups: ChatMessage[][] = useMemo(() => {
     return messages.reduce<ChatMessage[][]>((group, message) => {
       if (message.role === 'user') group.push([])
