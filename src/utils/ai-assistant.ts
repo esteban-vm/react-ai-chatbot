@@ -13,4 +13,12 @@ export const AIAssistant = class {
     const response = await this.#chat.sendMessage({ message: content })
     return response.text
   }
+
+  async *chatStream(content: string) {
+    const stream = await this.#chat.sendMessageStream({ message: content })
+
+    for await (const chunk of stream) {
+      yield chunk.text
+    }
+  }
 }

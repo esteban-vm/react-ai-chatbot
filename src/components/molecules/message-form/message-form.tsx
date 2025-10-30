@@ -8,17 +8,17 @@ import * as $ from './message-form.styled'
 
 export function MessageForm() {
   const errorId = useId()
-  const { isLoading, sendMessage } = useMessageStore()
+  const { isLoading, isStreaming, sendMessageStream } = useMessageStore()
   const { t } = useTranslation('translation', { keyPrefix: 'message_form' })
 
   const { ref, field, error, onKeyDown, onSubmit } = useMessageForm({
-    shouldDisable: isLoading,
-    onSendMessage: sendMessage,
+    onSendMessage: sendMessageStream,
+    shouldFocus: !isLoading || !isStreaming,
   })
 
   return (
     <form ref={ref} onSubmit={onSubmit}>
-      <$.Container disabled={isLoading}>
+      <$.Container disabled={isLoading || isStreaming}>
         <$.FormControl>
           <$.TextBox
             $as={TextareaAutosize}

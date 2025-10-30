@@ -5,8 +5,10 @@ import { AIAssistant, ChatMessage } from '@/utils'
 export interface MessageStore {
   isError: boolean
   isLoading: boolean
+  isStreaming: boolean
   messages: ChatMessage[]
   sendMessage: (content: string) => Promise<void>
+  sendMessageStream: (content: string) => Promise<void>
 }
 
 export const useMessageStore = create<MessageStore>()((set) => {
@@ -14,10 +16,29 @@ export const useMessageStore = create<MessageStore>()((set) => {
     set((state) => ({ messages: [...state.messages, newMessage] }))
   }
 
+  const updateLastMessage = (content?: string) => {
+    set(({ messages }) => {
+      return {
+        messages: messages.map((message, index) => {
+          if (index === messages.length - 1) {
+            return {
+              ...message,
+              content: `${message.content}${content}`,
+            }
+          }
+
+          return message
+        }),
+      }
+    })
+  }
+
   return {
     isError: false,
     isLoading: false,
+    isStreaming: false,
     messages: [],
+
     async sendMessage(content) {
       addMessage(ChatMessage.create('user', content))
       set({ isLoading: true, isError: false })
@@ -35,6 +56,35 @@ export const useMessageStore = create<MessageStore>()((set) => {
         }
       } finally {
         set({ isLoading: false })
+      }
+    },
+
+    async sendMessageStream(content) {
+      addMessage(ChatMessage.create('user', content))
+      set({ isLoading: true, isError: false })
+
+      try {
+        const reply = assistant.chatStream(content)
+        let isFirstChunk = false
+
+        for await (const chunk of reply) {
+          if (!isFirstChunk) {
+            isFirstChunk = true
+            addMessage(ChatMessage.create('assistant', ''))
+            set({ isLoading: false, isStreaming: true })
+          }
+
+          updateLastMessage(chunk)
+        }
+
+        set({ isStreaming: false })
+      } catch (error) {
+        set({ isLoading: false, isStreaming: false, isError: true })
+        if (error instanceof ApiError) {
+          alert(error.message)
+        } else if (import.meta.env.DEV) {
+          console.log(error)
+        }
       }
     },
   }
