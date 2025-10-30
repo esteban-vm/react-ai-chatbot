@@ -10,11 +10,11 @@ export interface MessageFormValues {
 }
 
 export interface UseMessageFormProps {
-  shouldDisable: boolean
+  shouldFocus: boolean
   onSendMessage: (content: string) => Promise<void>
 }
 
-export function useMessageForm({ shouldDisable, onSendMessage }: UseMessageFormProps) {
+export function useMessageForm({ shouldFocus, onSendMessage }: UseMessageFormProps) {
   const ref = useRef<HTMLFormElement>(null!)
   const { t } = useTranslation('translation', { keyPrefix: 'message_form.validations' })
 
@@ -25,10 +25,10 @@ export function useMessageForm({ shouldDisable, onSendMessage }: UseMessageFormP
   })
 
   useEffect(() => {
-    if (!shouldDisable) {
+    if (shouldFocus) {
       setFocus('message')
     }
-  }, [shouldDisable, setFocus])
+  }, [shouldFocus, setFocus])
 
   const field = register('message', {
     validate: {
