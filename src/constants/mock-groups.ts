@@ -15,7 +15,7 @@ export const mockGroups: ChatMessage[][] = [
   ],
   [
     ChatMessage.create('user', '\n```js\nexport const greeting = "I will get JavaScript syntax highlighting";\n```'),
-    ChatMessage.create('assistant', '\n- Term1\n\t- My description of Term1'),
+    ChatMessage.create('assistant', '\n- Term1\n\t- Description of Term1\n1. Term2\n\t1. Description of Term2'),
   ],
   [
     ChatMessage.create('user', '_Test_'),
