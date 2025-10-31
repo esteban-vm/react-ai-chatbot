@@ -36,7 +36,11 @@
     @apply min-h-full;
 
     &::after {
-      @apply bg-transparent text-[0.5px] text-transparent content-["a"];
+      @apply bg-transparent text-[0.1px] text-transparent content-["a"];
     }
+  }
+
+  li::marker {
+    @apply font-bold! text-current/90!;
   }
 }
