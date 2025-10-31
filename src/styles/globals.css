@@ -36,7 +36,7 @@
     }
   }
 
-  li::marker {
-    @apply font-bold! text-current/90!;
+  li {
+    @apply marker:!font-semibold marker:!text-current/90;
   }
 }
