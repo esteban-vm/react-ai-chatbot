@@ -18,10 +18,6 @@
         @apply bg-neutral-100 text-neutral-700;
       }
     }
-
-    @media (pointer: coarse) {
-      scrollbar-width: none;
-    }
   }
 
   body {
