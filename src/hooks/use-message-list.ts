@@ -2,8 +2,8 @@ import type { ChatMessage } from '@/utils'
 import { useEffect, useMemo } from 'react'
 
 export interface UseMessageListProps {
-  messages: ChatMessage[]
   shouldScroll: boolean
+  messages: ChatMessage[]
 }
 
 export function useMessageList({ shouldScroll, messages }: UseMessageListProps) {
