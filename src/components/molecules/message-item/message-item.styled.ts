@@ -12,6 +12,10 @@ export const Container = tw.div`
   leading-5
   dark:bg-neutral-800
   dark:prose-invert
+  prose-a:text-indigo-500
+  prose-a:hover:text-indigo-400
+  dark:prose-a:text-sky-500
+  dark:prose-a:hover:text-sky-400
   prose-pre:bg-neutral-200
   prose-pre:p-1
   dark:prose-pre:bg-neutral-800
