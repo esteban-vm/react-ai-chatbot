@@ -37,12 +37,17 @@ export const SendButton = tw.button`
   justify-center
   rounded-full
   bg-neutral-100
+  outline
+  outline-neutral-300
   transition-all
+  focus:outline-neutral-400
   enabled:active:scale-95
   disabled:cursor-not-allowed
   disabled:opacity-80
   md:size-16
   dark:bg-neutral-900
+  dark:outline-neutral-700
+  dark:focus:outline-neutral-600
 `
 
 export const TextBox = tw.textarea`
@@ -53,16 +58,17 @@ export const TextBox = tw.textarea`
   p-2
   text-sm
   outline
-  outline-transparent
+  outline-neutral-300
   placeholder:italic
-  valid:outline-green-300
-  invalid:outline-red-300
-  focus:outline-neutral-300
+  user-valid:outline-green-300
+  user-invalid:outline-red-300
+  focus:outline-neutral-400
   disabled:cursor-not-allowed
   disabled:opacity-80
   md:p-3
   dark:bg-neutral-900
-  dark:valid:outline-green-700
-  dark:invalid:outline-red-700
-  dark:focus:outline-neutral-700
+  dark:outline-neutral-700
+  dark:user-valid:outline-green-700
+  dark:user-invalid:outline-red-700
+  dark:focus:outline-neutral-600
 `
