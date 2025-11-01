@@ -3,7 +3,6 @@ import { useId } from 'react'
 import { useTranslation } from 'react-i18next'
 import TextareaAutosize from 'react-textarea-autosize'
 import { useMessageForm, useMessageStore } from '@/hooks'
-import { cn } from '@/utils'
 import * as $ from './message-form.styled'
 
 export function MessageForm() {
@@ -30,7 +29,7 @@ export function MessageForm() {
             onKeyDown={onKeyDown}
             {...field}
           />
-          <$.ErrorFeedback className={cn(!error && 'hidden')} id={errorId} role='alert'>
+          <$.ErrorFeedback id={errorId} role='alert'>
             {error?.message}
           </$.ErrorFeedback>
         </$.FormControl>

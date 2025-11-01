@@ -11,6 +11,7 @@ export const ErrorFeedback = tw.small`
   mx-3
   text-xs
   text-red-700
+  empty:hidden
   dark:text-red-300
 `
 
