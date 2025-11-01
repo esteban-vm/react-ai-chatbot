@@ -7,12 +7,12 @@ import * as $ from './message-form.styled'
 
 export function MessageForm() {
   const errorId = useId()
-  const { isLoading, isStreaming, sendMessageStream } = useMessageStore()
+  const { isLoading, isStreaming, sendMessage } = useMessageStore()
   const { t } = useTranslation('translation', { keyPrefix: 'message_form' })
 
   const { ref, field, error, onKeyDown, onSubmit } = useMessageForm({
-    onSendMessage: sendMessageStream,
-    shouldFocus: !isLoading || !isStreaming,
+    onSendMessage: sendMessage,
+    shouldFocus: !isLoading && !isStreaming,
   })
 
   return (
