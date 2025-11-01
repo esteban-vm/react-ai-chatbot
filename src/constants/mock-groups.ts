@@ -18,7 +18,7 @@ export const mockGroups: ChatMessage[][] = [
     ChatMessage.create('assistant', '\n- Term1\n\t- Description of Term1\n1. Term2\n\t1. Description of Term2'),
   ],
   [
-    ChatMessage.create('user', '_Test_'),
+    ChatMessage.create('user', '**Test**'),
     ChatMessage.create('assistant', "\n```js\nfunction joinClasses(classes) {\n  return classes.join(' ');\n}\n```"),
   ],
   [
