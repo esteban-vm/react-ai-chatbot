@@ -64,13 +64,13 @@ export default defineConfig({
           },
           {
             src: 'screenshots/mobile-dark.webp',
-            sizes: '1290x2795',
+            sizes: '1442x3202',
             form_factor: 'narrow',
             label: 'Mobile view showing chatbot interface in dark mode',
           },
           {
             src: 'screenshots/mobile-light.webp',
-            sizes: '1290x2795',
+            sizes: '1442x3202',
             form_factor: 'narrow',
             label: 'Mobile view showing chatbot interface in light mode',
           },
