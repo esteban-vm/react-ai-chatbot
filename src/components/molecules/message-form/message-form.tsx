@@ -26,6 +26,7 @@ export function MessageForm() {
             maxRows={4}
             minRows={2}
             placeholder={t('textbox')}
+            required
             onKeyDown={onKeyDown}
             {...field}
           />
