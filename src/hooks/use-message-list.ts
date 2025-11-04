@@ -1,5 +1,5 @@
 import type { ChatMessage } from '@/utils'
-import { useEffect, useMemo } from 'react'
+import { useEffect } from 'react'
 
 export interface UseMessageListProps {
   shouldScroll: boolean
@@ -7,13 +7,11 @@ export interface UseMessageListProps {
 }
 
 export function useMessageList({ shouldScroll, messages }: UseMessageListProps) {
-  const groups: ChatMessage[][] = useMemo(() => {
-    return messages.reduce<ChatMessage[][]>((group, message) => {
-      if (message.role === 'user') group.push([])
-      group.at(-1)?.push(message)
-      return group
-    }, [])
-  }, [messages])
+  const groups = messages.reduce<ChatMessage[][]>((group, message) => {
+    if (message.role === 'user') group.push([])
+    group.at(-1)?.push(message)
+    return group
+  }, [])
 
   useEffect(() => {
     if (shouldScroll) {
